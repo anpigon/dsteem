@@ -253,12 +253,11 @@ export class Client {
         const opts: any = {
             body,
             cache: 'no-cache',
-            headers: {'User-Agent': `dsteem/${ packageVersion }`},
             method: 'POST',
             mode: 'cors',
         }
         if (this.options.agent) {
-            opts.agent = this.options.agent
+            opts.agent = this.options.agent || `dsteem/${ packageVersion }`
         }
         let fetchTimeout: any
         if (api !== 'network_broadcast_api' && method.substring(0, 21) !== 'broadcast_transaction') {

@@ -6,22 +6,27 @@
   "license": "BSD-3-Clause",
   "main": "./lib/index-node",
   "typings": "./lib/index",
+  "typescript": {
+    "definition": "lib/index.d.ts"
+  },
+  "types": "lib/index.d.ts",
   "browser": {
     "./lib/index-node": "./dist/dsteem.js",
     "./src/index-node": "./dist/dsteem.js",
     "./src/version": "./lib/version.js"
   },
   "files": [
-    "dist/*",
-    "lib/*"
+    "dist",
+    "lib"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jnordberg/dsteem"
+    "url": "git://github.com/anpigon/dsteem.git"
   },
   "scripts": {
     "test": "make ci-test",
-    "prepublishOnly": "make all"
+    "prepublishOnly": "make all",
+    "build": "tsc -p tsconfig.json --outDir lib"
   },
   "keywords": [
     "blockchain",
